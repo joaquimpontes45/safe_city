@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denunciar Crime</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <script src="../../static/site/mapa.js"></script>
+    <style>
+        #map {
+            height: 300px;
+            width: 300px;
+        }
+        input {
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+<body onload="initMap()">
+    <h2>Relatar delito</h2>
+    <form method="POST">
+        <label for="nome_denuncia">Nome da vítima:</label>
+        <input type="text" id="nome_denuncia" name="nome_denuncia" placeholder="Nome completo" required>
+        <br>
+        <label for="numero">Número da vítima:</label>
+        <input type="text" id="numero" name="numero" placeholder="Seu número de telefone ou de um parente próximo">
+        <br>
+    
+        <h1>Local do crime:</h1>
+        <label for="cidade">Cidade:</label><br>
+        <input type="text" id="cidade" name="cidade" required><br>
+    
+        <label for="bairro">Bairro:</label><br>
+        <input type="text" id="bairro" name="bairro" required><br>
+    
+        <label for="rua">Rua:</label><br>
+        <input type="text" id="rua" name="rua" required><br>
+    
+        <div id="map"></div><br>
+    
+        <label for="tipo">Tipo do crime:</label><br>
+        <input list="listar" type="text" id="tipo" name="tipo_do_crime" placeholder="Ex: Arrombamento" style="width: 12%;" required>
+        <datalist id="listar">
+            <option value="furto">furto</option>
+            <option value="assalto">assalto</option>
+        </datalist>
+        <br>
+    
+        <label for="data">Data:</label>
+        <input type="date" id="data" name="data" required>
+    
+        <label for="hora">Hora:</label>
+        <input type="time" id="hora" name="hora" required>
+        <br>
+    
+        <label for="cor">Cor do criminoso:</label><br>
+        <input list="cores" id="cor" name="cor" placeholder="Cor" style="text-transform: capitalize;" required>
+        <datalist id="cores">
+            <option value="Branco(a)">
+            <option value="Pardo(a)">
+            <option value="Amarelo(a)">
+            <option value="Negro(a)">
+        </datalist>
+        <br>
+    
+        <label for="sexo">Sexo do criminoso(a):</label><br>
+        <select name="sexo" id="sexo" required>
+            <option value="Homem">Homem</option>
+            <option value="Mulher">Mulher</option>
+        </select>
+        <br>
+    
+        <label for="altura">Altura aproximada (metros):</label><br>
+        <input type="number" name="altura" id="altura" min="1" max="3" step="0.01" required>
+        <br>
+    
+        <label for="descricao">Descrição do crime:</label><br>
+        <textarea id="descricao" name="descricao" placeholder="Se conhece o suspeito, se há testemunhas, etc." rows="4" cols="50" required></textarea><br>
+    
+        <input type="text" id="latitude" name="latitude" style="display: none;"><br>
+        <input type="text" id="longitude" name="longitude" style="display: none;"><br><br>
+    
+        <input type="submit" value="Enviar">
+    </form>
+    
+</body>
+</html>

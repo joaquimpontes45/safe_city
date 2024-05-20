@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario de denuncia</title>
+</head>
+<body>
+    <table>
+        <tr>nome</tr>
+        <tr>tipo do crime</tr>
+    </table>
+
+    {%for denuncia in denuncias%}
+        <table>
+            <tr>{{denuncia['Nome'].split()[0]}}</tr>
+            <tr>{{denuncia['tipo_do_crime']}}</tr>
+            <tr><a href="{{url_for('ver_denuncia', id=denuncia['id'])}}">ver mais</a></tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </table>
+    {% endfor %}
+</body>
+</html>
